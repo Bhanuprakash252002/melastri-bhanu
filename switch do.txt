@@ -1,0 +1,76 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+	    char ch=0;
+	   
+	    do{
+	        System.out.println("enter choice :");
+	        int choice = sc.nextInt();
+    	    switch(choice)
+    	    {
+    	            case 1 :
+    	                System.out.println("enter n value : ");
+    	                int n=sc.nextInt();
+    	                if(n%2==0)
+    	                {
+    	                    System.out.println("even");
+    	                }
+    	                else
+    	                {
+    	                    System.out.println("odd");
+    	                }
+    	                break;
+    	           case 2 :
+    	               System.out.println("enter n value : ");
+    	               int n1=sc.nextInt();
+    	               int fact=1;
+    	               for(int i=1;i<=n1;i++)
+    	               {
+    	                    fact=fact*i;
+    	               }
+    	               System.out.println("factorial :"+ fact);
+    	               break;
+    	           case 3 :
+    	               System.out.println("enter n value : ");
+    	               int n2=sc.nextInt();
+    	               int temp=n2,rev=0;
+    	               while(temp!=0)
+    	               {
+    	                   int a = temp%10;
+    	                   rev = rev *10+a;
+    	                   temp=temp/10;
+    	               }
+    	               System.out.println("reverse number : "+rev);
+    	               break;
+    	           case 4 :
+    	               int n5=0,n6=1;
+    	               System.out.println("num value :");
+    	               int num = sc.nextInt();
+    	               if(num==1)
+    	               {
+    	                   System.out.println(n6 +" ");
+    	               }
+    	               System.out.print(n5+" "+n6+" ");
+    	               for(int i=2;i<=num;i++)
+    	               {
+    	                   int n7=n5+n6;
+    	                   System.out.print(n7 + " ");
+    	                   n5=n6;
+    	                   n6=n7;
+    	               }
+    	               System.out.println();
+    	               break;
+    	           default : System.out.println("exit");
+    	    }
+    	     System.out.println("enter ch :");
+	         ch = sc.next().charAt(0);
+	        if(ch=='n')
+	        {
+	            break;
+	        }
+	    }while(ch=='y');
+	    
+	}
+}

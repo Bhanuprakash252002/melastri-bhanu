@@ -1,0 +1,133 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc =new Scanner(System.in);
+	    System.out.println("Enter sting :");
+	    String s=sc.next();
+	    char ch;
+	    do{
+	        System.out.println("Enter choice :");
+	        int choice=sc.nextInt();
+	        switch(choice)
+	        {
+	           case 1:
+	                System.out.println("reverse string :");
+	                 String rev="";
+                    for(int i=s.length()-1;i>=0;i--)
+                	{
+                	    char ch2 =s.charAt(i);
+                	    rev=rev+ch2;
+                	}
+                    System.out.println(rev);
+                    break;
+                case 2 :
+                    System.out.println("reverse string :");
+	                 String rev1="";
+                    for(int i=s.length()-1;i>=0;i--)
+                	{
+                	    char ch3 =s.charAt(i);
+                	    rev1=rev1+ch3;
+                	}
+                    System.out.println(rev1);
+                    if(s.equals(rev1))
+                    {
+                        System.out.println("palindrome");
+                    }
+                    else{
+                        System.out.println("not palindrome");
+                    }
+                    break;
+                case 3:
+                    int wcount=0,ccount=0,scount=0;
+                    for(int i=0;i<s.length();i++)
+                    {
+                        char ch1=s.charAt(i);
+                        if(ch1 !=' ')
+                        {
+                            ccount++;
+                        }
+                        else{
+                            scount++;
+                            wcount++;
+                        }
+                        
+                        
+                    }
+                    System.out.println("word count : "+wcount);
+                    System.out.println("char count : "+ccount);
+                    System.out.println("space count : "+scount);
+                    break;
+                case 4:
+                    System.out.println("enter one string :");
+                    String s1=sc.next();
+                    System.out.println("Enter second string :");
+                    String s2 = sc.next();
+                    if(s1.length()==s2.length())
+                    {
+                        char[] c1=s1.toCharArray();
+                        char[] c2=s2.toCharArray();
+                        Arrays.sort(c1);
+                        Arrays.sort(c2);
+                        boolean b=Arrays.equals(c1,c2);
+                        if(b==true)
+                        {
+                            System.out.println("Anagram");
+                            
+                        }
+                        else{
+                            System.out.println("not Anagram");
+                        }
+                        
+                    }
+                    else{
+                        System.out.println("not anagram");
+                    }
+                    break;
+                case 5:
+                    int vowels=0;
+                    int consonents=0;
+                    for(int i=0;i<s.length();i++)
+                    {
+                        char ch6=s.charAt(i);
+                        if(ch6=='a'||ch6=='e'||ch6=='i'||ch6=='o'||ch6=='u')
+                        {
+                            vowels++;
+                        }
+                        else{
+                            consonents++;
+                        }
+                    }
+                    
+                    System.out.println("vowels : "+vowels);
+                    System.out.println("consonents : "+consonents);
+                    break;
+                default : System.out.println("not a choice");
+                
+                    
+	        }
+	        System.out.println("Enter ch :");
+	        ch=sc.next().charAt(0);
+	    }while(ch=='y');
+
+	    char[] a=s.toCharArray();
+	    for(char x:a)
+	    {
+	        System.out.println(x);
+	    }
+	    String s1 = new String(a);
+	    System.out.println(s1);
+	    
+	    
+	}
+}
+

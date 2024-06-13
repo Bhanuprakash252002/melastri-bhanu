@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter value :");
+		int n=sc.nextInt();
+		int i,j,flag=0,prime=0,	notprime=0;
+		for(i=1;i<=n;i++)
+		{
+			for(j=2;j<i;j++)
+			{
+				if(i%j==0)
+				{
+					flag=1;
+					break;
+				}
+				else
+				{
+					flag=0;
+				}
+			}
+			if(flag==0)
+			{
+				prime+=1;
+				System.out.println(i+"is  prime");
+			}
+			else
+			{
+				notprime+=1;
+				System.out.println(i +"is not prime");
+			}
+		}
+		System.out.println("no of prime numbers in"+n+"is :"+prime);
+		System.out.println("no of notprime numbers in"+n+"is :"+notprime);
+	}	
+}		
+		
+	
+

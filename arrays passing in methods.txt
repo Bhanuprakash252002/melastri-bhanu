@@ -1,0 +1,52 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.Scanner;
+
+public class Main
+{
+   
+    void values(int a[])
+    {
+        System.out.println("Array values are: ");
+        
+        for(int i=0;i<a.length;i++)
+        {
+            
+            System.out.println(a[i]);
+        }
+    }
+    static int display(int a[])
+    {
+       int  max=0;
+        for(int i=0;i<a.length;i++)
+        {
+            if(max<a[i])
+            {
+                max=a[i];
+            }
+        }
+        return max;
+    }
+	public static void main(String[] args) {
+	Scanner sc =  new Scanner(System.in);
+		
+	System.out.println("Enter size of array :");
+	int n =sc.nextInt();
+	int a[]=new int[n];
+	System.out.println("Enter array values :");
+	for(int i=0;i<n;i++)
+	{
+	    a[i]=sc.nextInt();
+	}
+	Main m1=new Main();
+	m1.values(a);
+
+	System.out.println(" max value : "+display(a));
+	
+	}
+}

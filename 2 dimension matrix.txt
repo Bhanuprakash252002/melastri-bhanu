@@ -1,0 +1,127 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc =new Scanner(System.in);
+	    System.out.println("Enter how many rows you want :");
+	    int r1=sc.nextInt();
+	    System.out.println("Enter how many colomuns you want :");
+	    int c1=sc.nextInt();
+	    int a1[][]= new int[r1][c1];
+	    int b1[][]=new int[r1][c1];
+	    int c[][]=new int[r1][c1];
+	    System.out.println("Enter a matrix :");
+	    for(int i=0;i<r1;i++)
+	    {
+	        for(int j=0;j<c1;j++)
+	        {
+	            a1[i][j]=sc.nextInt();
+	        }
+	    }
+	    System.out.println("Enter b matrix :");
+	    for(int i=0;i<r1;i++)
+	    {
+	        for(int j=0;j<c1;j++)
+	        {
+	            b1[i][j]=sc.nextInt();
+	        }
+	    }
+	    System.out.println("A matrix :");
+	    for(int i=0;i<r1;i++)
+	    {
+	        for(int j=0;j<c1;j++)
+	        {
+	            System.out.print(a1[i][j]+" ");
+	        }
+	        System.out.println();
+	    }
+	    System.out.println("B matrix :");
+	    for(int i=0;i<r1;i++)
+	    {
+	        for(int j=0;j<c1;j++)
+	        {
+	            System.out.print(b1[i][j]+" ");
+	        }
+	        System.out.println();
+	    }
+	    System.out.println("Sum of two matrix :");
+	    for(int i=0;i<r1;i++)
+	    {
+	        for(int j=0;j<c1;j++)
+	        {
+	            c[i][j]=a1[i][j]+b1[i][j];
+	            System.out.print(c[i][j]+" ");
+	        }
+	        System.out.println();
+	    }
+	    System.out.println("Transpose of matrix :");
+	    for(int i=0;i<r1;i++)
+	    {
+	        for(int j=0;j<c1;j++)
+	        {
+	            
+	            System.out.print(a1[j][i]+" ");
+	        }
+	        System.out.println();
+	    }
+	    System.out.println("matrixes equialance :");
+	    int flag=0;
+	    for(int i=0;i<r1;i++)
+	    {
+	        for(int j=0;j<c1;j++)
+	        {
+	            if(a1[i][j]!=b1[i][j])
+	            {
+	                 flag=1;
+	                System.out.println("row "+i+" "+"column "+j+" value is not equal");
+	            }
+	        }
+	    }
+	    if(flag==0)
+	    {
+	        System.out.println("matrixes are equal");
+	    }
+	    System.out.println("lower triangle :");
+	    for(int i=0;i<r1;i++)
+	    {
+	        for(int j=0;j<c1;j++)
+	        {
+	            if(j>i)
+	            {
+	                System.out.print("0 ");
+	            }
+	            else{
+	                System.out.print(a1[i][j]+" ");
+	            }
+	        }
+	        System.out.println();
+	    }
+	    System.out.println("Upper triangle :");
+	    for(int i=0;i<r1;i++)
+	    {
+	        for(int j=0;j<c1;j++)
+	        {
+	            if(i>j)
+	            {
+	                System.out.print("0 ");
+	            }
+	            else{
+	                System.out.print(a1[i][j]+" ");
+	            }
+	        }
+	        System.out.println();
+	    }
+	    
+	    
+	    
+	    
+	}
+}
+

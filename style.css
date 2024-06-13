@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.heading
+{
+    background-color: aqua;
+}
+.heading ul{
+    float: right;
+    display: inline flex;
+}
+.heading ul a li{
+    list-style-type: none;
+    padding: 100;
+    margin-left: 100;
+}
+.about{
+    background-color: red;
+}
+.child1{
+    width: 50%;
+}
+.about .child2
+{
+    float: right;
+    display: inline-flex;
+    width: 50%;
+    margin: 10%;
+    padding: 20;
+}

@@ -1,0 +1,74 @@
+﻿/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter string :");
+		String s1=sc.next();
+		String []s2=s1.split(":");
+		String s3 ="";
+		for(int i=0;i<s2.length;i++)
+		{
+		    if(i==0)
+		    {
+		       s3=s2[i].replaceAll("[AEIOUaeiou]","*")+" "; 
+		    }
+		    else if(i==1)
+		    {
+		        String s4="";
+		        for(int j=0;j<s2[i].length();j++)
+		        {
+		            char ch=s2[i].charAt(j);
+		            if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U')
+		            {
+		                s4=s4+ch;
+		            }
+		            else{
+		                s4=s4+'@';
+		            }
+		        }
+		        s3=s3+" "+s4+" ";
+		    }
+		    else{
+		        s3=s3+s2[i].toUpperCase();
+		        
+		    }
+		}
+		System.out.println(s3);
+		System.out.println("enter one :");
+		String a1=sc.next();
+		System.out.println("enter second :");
+		String a2=sc.next();
+		if(a1.length()==a2.length())
+		{
+		    String u1=a1.toUpperCase();
+		    String u2=a2.toUpperCase();
+		    char c1[]=u1.toCharArray();
+		    char c2[]=u2.toCharArray();
+		    Arrays.sort(c1);
+		    Arrays.sort(c2);
+		    boolean b=Arrays.equals(c1,c2);
+		    if(b==true)
+		    {
+		        System.out.println("Anagram");
+		    }
+		    else{
+		        System.out.println("not anagram");
+		    }
+		}
+		else{
+		    System.out.println("not anagram");
+		}
+		
+		
+	}
+}
