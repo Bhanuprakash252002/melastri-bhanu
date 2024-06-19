@@ -1,0 +1,45 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+public class Main
+{
+    void arraye(int a[])
+    {
+        a[4]=2;
+    }
+    void display(int a) throws ArithmeticException
+    {
+        int t=10;
+        if(t<a)
+        {
+            throw new ArithmeticException("not divisible");
+        }
+        //System.out.println(t);
+    }
+	public static void main(String[] args) {
+	    Main m = new Main();
+	    int a[]=new int[4];
+	    a[0]=10;
+	    a[1]=2;
+	    a[2]=3;
+	    a[3]=4;
+	    try{
+	    m.display(22);
+	    }
+	    catch(ArithmeticException e){
+	        System.out.println(e.getMessage());
+	    }
+	    try{
+	    m.arraye(a);
+	    }
+	    catch(ArrayIndexOutOfBoundsException e)
+	    {
+	        System.out.println(e.getMessage());
+	    }
+	}
+}
