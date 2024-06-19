@@ -1,0 +1,84 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+class withDraw extends Exception
+{
+    withDraw( String msg)
+    {
+        super(msg);
+    }
+}
+class deposit extends Exception
+{
+    deposit(String msg)
+    {
+        super(msg);
+    }
+}
+class loan extends Exception
+{
+    loan(String msg)
+    {
+        super(msg);
+    }
+}
+
+public class Main
+{
+    double balance;
+    int creditScore;
+    Main(double balance,int creditScore)
+    {
+        this.balance=balance;
+        this.creditScore=creditScore;
+    }
+    void withDraw(double wmoney) throws withDraw
+    {
+        if(wmoney>balance)
+        {
+            throw new withDraw("insufficient balance");
+        }
+    }
+    void deposit(double dmoney) throws deposit
+    {
+        if(balance>100000)
+        {
+            throw new deposit("bank balance full");
+        }
+    }
+    void loan(int loanAmount) throws loan
+    {
+        if(creditScore<800)
+        {
+            throw new loan("loan cancelled due to low credit Score");
+        }
+    }
+	public static void main(String[] args) {
+		Main m  = new Main(1000000,600);
+		try {
+		    m.withDraw(20000000);
+		    
+		} catch(Exception e) {
+		    System.out.println(e.getMessage());
+		}
+		try
+		{
+		    m.deposit(222);
+		}
+		catch(Exception e)
+		{
+		    System.out.println(e.getMessage());
+		}
+		try{
+		    m.loan(10000);
+		}
+		catch(Exception e)
+		{
+		    System.out.println(e.getMessage());
+		}
+	}
+}
