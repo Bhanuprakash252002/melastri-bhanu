@@ -1,0 +1,44 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+public class Main implements Runnable
+{
+    
+    
+    public void run()
+    {
+      for(int i=0;i<10;i++)
+      {
+          System.out.println(Thread.currentThread()+" "+i);
+          System.out.println(Thread.currentThread().getName());
+          System.out.println(Thread.currentThread().getPriority());
+          try{
+          Thread.sleep(3000);
+          }
+          catch( InterruptedException e)
+          {
+              
+          }
+      }
+    }
+	public static void main(String[] args) {
+		Main m=new Main();
+		Thread t = new Thread(m);
+		t.start();
+		t.setName("bhanu");
+		t.setPriority(10);
+		Main m1=new Main();
+		Thread t1 = new Thread(m1);
+		t1.start();
+		t1.setName("palak");
+		t1.setPriority(1);
+		
+		
+		
+	}
+}
