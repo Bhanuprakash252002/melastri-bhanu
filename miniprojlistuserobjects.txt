@@ -1,0 +1,200 @@
+import java.util.*;
+
+class Employee 
+{
+    int id;
+    String name;
+    double salary;
+    String password;
+    Employee(int id,String name,String password,double salary)
+    {
+        this.id=id;
+        this.password=password;
+        this.name=name;
+        this.salary=salary;
+    }
+    void setname(String name)
+    {
+        this.name=name;
+    }
+    public String toString()
+    {
+        return id +" "+name+" "+salary;
+    }
+}
+class EmployeeService
+{
+    ArrayList<Employee> a = new ArrayList<Employee>();
+    Employee e1 = new Employee(1,"bhanu","bhanu123",25000);
+    Employee e2= new Employee(2,"kumar","kumar1",11000);
+    Employee e3= new Employee(3,"chandu","chandu1",5000);
+    Employee e4= new Employee(4,"prakash","prakash",66000);
+    Scanner sc = new Scanner(System.in);
+    EmployeeService()
+    {
+        a.add(e1);
+        a.add(e2);
+        a.add(e3); 
+        a.add(e4);
+        
+    }
+    void viewDetails()
+    {
+        for(Employee x:a)
+        {
+            System.out.println(x);
+        }
+    }
+    void searchDetails()
+    {
+        System.out.println("Enter your Employee id to search :");
+        int eid=sc.nextInt();
+        boolean found = false;
+        for(Employee x:a)
+        {
+            if(x.id==eid)
+            {
+                found=true;
+                break;
+            }
+        }
+        if(found==true)
+        {
+            System.out.println("your details are in employe table");
+        }
+        else
+        {
+            System.out.println("your details are not in employe table");
+        }
+            
+        
+    }
+    void removeEmployeeDetails()
+    {
+        System.out.println("Enter id to remove details :");
+        int eid=sc.nextInt();
+        boolean found=false;
+        int count=0;
+        for(Employee e :a)
+        {
+            if(e.id==eid)
+            {
+                
+               found=true;
+            }
+            if(found==true)
+            {
+                a.remove(e);
+                count=1;
+                break;
+            }
+
+        }
+        if(count==0)
+        {
+            System.out.println("your details are not available to delete");
+        }
+    }
+    void overrideName()
+    {
+        System.out.println("Enter id to override name :");
+        int eid=sc.nextInt();
+        int count1=0;
+        int check=0;
+        for(Employee e :a)
+        {
+            if(e.id==eid)
+            {
+                count1=1;
+            }
+            if(count1==1)
+            {
+                System.out.println("Enter name to override :");
+                String a1=sc.next();
+                e.setname(a1);
+                check=1;
+                break;
+            }
+        }
+        if(check==0)
+        {
+            System.out.println("your are not in employe details to override");
+        }
+    }
+    boolean found2=false;
+    public void userChecking()
+    {
+        System.out.println("Enter userid : ");
+        int s=sc.nextInt();
+        System.out.println("Enter password :");
+        String s1=sc.next();
+        for(Employee e:a)
+        {
+            if(e.id==s&&e.password.equals(s1))
+            {
+              
+                    found2=true;
+               
+            }
+        }
+    }
+    
+    
+    
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    EmployeeService e = new EmployeeService();
+	    char ch;
+	    do 
+	    {
+	        e.userChecking();
+	        if(e.found2==true)
+	        {
+	            System.out.println("Enter choice:");
+	            int choice= sc.nextInt();
+	            switch(choice)
+	            {
+	                case 1:
+	                    System.out.println("view employee details");
+	                    e.viewDetails();
+	                    break;
+	               case 2:
+	                   System.out.println("search employe in employedetails");
+	                   e.searchDetails();
+	                   break;
+	               case 3:
+	                   System.out.println("remove employe in employee details");
+	                    e.removeEmployeeDetails();
+	                    break;
+	               case 4:
+	                    System.out.println("overide name in employe details");
+	                    e.overrideName();
+	                    break;
+	               default:
+	                    System.out.println("enter valid choice");
+	                    break;
+	                   
+	                
+	            }
+	            
+	        }
+	        else
+	        {
+	            System.out.println("enter valid details");
+	        }
+	        System.out.println("enter ch");
+	        ch = sc.next().charAt(0);
+	        if(ch=='n')
+	        {
+	            break;
+	        }
+	    }while(ch=='y');
+	   
+	    
+		
+	}
+}
