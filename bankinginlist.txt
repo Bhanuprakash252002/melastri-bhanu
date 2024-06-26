@@ -1,0 +1,349 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.*;
+class bankEmployee
+{
+    int idno;
+    String password;
+    String name;
+    bankEmployee(int idno,String password,String name)
+    {
+        this.idno=idno;
+        this.password=password;
+        this.name=name;
+    }
+    public String toString()
+    {
+        return idno+" "+name;
+    }
+}
+class bankCustomer
+{
+    double acno;
+    String password;
+    String name;
+    double balance;
+    bankCustomer(double acno,String password,String name,double balance)
+    {
+        this.acno=acno;
+        this.password=password;
+        this.name=name;
+        this.balance=balance;
+    }
+    void depositMoney(double money)
+    {
+        balance+=money;
+    }
+    void withDrawMoney(double money)
+    {
+        if(balance>money)
+        {
+            balance-=money;
+            System.out.println("your money was withdrawn");
+        }
+        else 
+        {
+            System.out.println("you have insufficent balance");
+        }
+    }
+    void balance()
+    {
+        System.out.println("your remaining balance : "+balance);
+    }
+    public String toString()
+    {
+        return acno+" "+name+" "+balance;
+    }
+    
+}
+class bankServices
+{
+    ArrayList<bankEmployee> be=new ArrayList<bankEmployee>();
+    ArrayList<bankCustomer> bc=new ArrayList<bankCustomer>();
+    Scanner sc = new Scanner(System.in);
+    bankEmployee a1 = new bankEmployee(1,"zzz","harish");
+    bankEmployee a2 = new bankEmployee(2,"xxx","kar");
+    bankEmployee a3 = new bankEmployee(3,"yyy","arish");
+    bankEmployee a4 = new bankEmployee(4,"sss","rish");
+    bankCustomer b1 =new bankCustomer(123,"aaaa","bhanu",100000);
+    bankCustomer b2 =new bankCustomer(456,"bbbb","prakash",200000);
+    bankCustomer b3 =new bankCustomer(789,"cccc","kumar",300000);
+    bankCustomer b4 =new bankCustomer(101,"dddd","sekar",400000);
+    bankServices()
+    {
+        be.add(a1);
+        be.add(a2);
+        be.add(a3);
+        be.add(a4);
+        bc.add(b1);
+        bc.add(b2);
+        bc.add(b3);
+        bc.add(b4);
+    }
+    void customerDeposit()
+    {
+        System.out.println("Enter account number to deposit money to your bank amount: ");
+        double c_acno=sc.nextDouble();
+        int count=0;
+        for(bankCustomer b:bc)
+        {
+            if(b.acno==c_acno)
+            {
+                System.out.println("Enter how much amount you want deposit :");
+                double money=sc.nextInt();
+                b.depositMoney(money);
+                count=1;
+                break;
+            }
+            
+        }
+        if(count==0)
+        {
+            System.out.println("Enter valid number ");
+        }
+        
+        
+    }
+    void balance()
+    {
+        int count=0;
+        for(bankCustomer b:bc)
+        {
+            System.out.println("Enter account number");
+            double s1=sc.nextDouble();
+            if(b.acno==s1)
+            {
+                b.balance();
+                count=1;
+                break;
+            }
+            
+        }
+        if(count==0)
+        {
+            System.out.println("Enter valid number ");
+        }
+    }
+    void customerWithDraw()
+    {
+        System.out.println("Enter account number to withdraw money from your bank amount: ");
+        double c_acno=sc.nextDouble();
+        int count=0;
+        for(bankCustomer b:bc)
+        {
+            if(b.acno==c_acno)
+            {
+                System.out.println("Enter how much amount you want to withdraw :");
+                double money=sc.nextInt();
+                b.withDrawMoney(money);
+                count=1;
+                break;
+            }
+            
+        }
+        if(count==0)
+        {
+            System.out.println("Enter valid number ");
+        }
+    }
+    void Allcoustomersdetails()
+    {
+        for(bankCustomer b:bc)
+        {
+            System.out.println(b);
+        }
+    }
+    void particularCustomerDetails()
+    {
+        System.out.println("Enter customer id to view details ");
+        double a=sc.nextDouble();
+        int count=0;
+        for(bankCustomer b:bc)
+        {
+            if(b.acno==a)
+            {
+                System.out.println(b);
+                count=1;
+                break;
+            }
+            
+                 
+        }
+        if(count==0)
+        {
+            System.out.println("Enter valid number ");
+        }
+    }
+    void addcustomers()
+    {
+        System.out.println("Enter how many customers you want to add");
+        int n=sc.nextInt();
+        for(int i=0;i<n;i++)
+        {
+            System.out.println("Enter account number :");
+            double ac=sc.nextDouble();
+            System.out.println("Enter password :");
+            String pass=sc.next();
+            System.out.println("Enter cname :");
+            String na=sc.next();
+            System.out.println("Enter how much cutomer want to deposit :");
+            double b=sc.nextDouble();
+            bankCustomer b1=new bankCustomer(ac,pass,na,b);
+            bc.add(b1);
+              
+        }
+        
+    }
+    void removeCustomer()
+    {
+        int count=0;
+        System.out.println("Enter customer acno");
+        double d=sc.nextDouble();
+        for(bankCustomer b:bc)
+        {
+            if(b.acno==d)
+            {
+               count=1;
+            }
+            if(count==1)
+            {
+                bc.remove(b);
+                break;
+            }
+            
+        }
+        if(count==0)
+        {
+            System.out.println("Enter valid details");
+        }
+    }
+    boolean found=false;
+    void customerAuthentication()
+    {
+        System.out.println("Enter account number :");
+        double x=sc.nextDouble();
+        System.out.println("Enter password :");
+        String y=sc.next();
+        for(bankCustomer b:bc)
+        {
+            if(b.acno==x&&b.password.equals(y))
+            {
+                found=true;
+                
+            }
+        }
+    }
+    boolean found1=false;
+    void EmployeeAuthentication()
+    {
+        System.out.println("Enter employe id :");
+        int id1=sc.nextInt();
+        System.out.println("Enter password ");
+        String s=sc.next();
+        for(bankEmployee b:be)
+        {
+            if(b.idno==id1&&b.password.equals(s))
+            {
+                found1=true;
+            }
+        }
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+		bankServices b = new bankServices();
+		System.out.println("Enter 'Employe' if you are employe else not");
+		String s=sc.next();
+		if(s.equals("Employe"))
+		{
+            b.EmployeeAuthentication();
+            if(b.found1==true)
+            {
+                char ch;
+                do{
+                    System.out.println("----------MENU---------- ");
+                    System.out.println("case 1: customers details");
+                    System.out.println("case 2: Adding customers");
+                    System.out.println("case 3: remove customers");
+                    System.out.println("Enter choice :");
+                    int choice=sc.nextInt();
+                    switch(choice)
+                    {
+                        case 1:
+                            System.out.println("View all customer details :");
+                            b.Allcoustomersdetails();
+                            break;
+                        case 2:
+                            System.out.println("add new customer");
+                            b.addcustomers();
+                            break;
+                        case 3:
+                            System.out.println("Remove customer :");
+                            b.removeCustomer();
+                            break;
+                        default:System.out.println("Enter valid choice");
+                    }
+                    System.out.println("Enter ch ");
+                    ch=sc.next().charAt(0);
+                }while(ch=='y');
+               
+            }
+            else
+            {
+                System.out.println("Enter valid employe details");
+            }
+		}
+		else{
+		    b.customerAuthentication();
+		    if(b.found==true)
+            {
+                char ch;
+                do{
+                    System.out.println("----------MENU---------- ");
+                    System.out.println("case 1: depositing money");
+                    System.out.println("case 2: remaing balance");
+                    System.out.println("case 3: withdrawing");
+                    System.out.println("case 4: view deatils of ours");
+                    System.out.println("Enter choice :");
+                    int choice=sc.nextInt();
+                    switch(choice)
+                    {
+                        case 1:
+                            System.out.println("depositing money :");
+                            b.customerDeposit();
+                            break;
+                        case 2:
+                            System.out.println("Remaing balance :");
+                            b.balance();
+                            break;
+                        case 3:
+                            System.out.println("withdrawing  :");
+                            b.customerWithDraw();
+                            break;
+                        case 4:
+                            System.out.println("view our details :");
+                            b.particularCustomerDetails();
+                            break;
+                        default:System.out.println("Enter valid choice");
+                    }
+                    System.out.println("Enter ch ");
+                    ch=sc.next().charAt(0);
+                }while(ch=='y');
+               
+            }
+            else
+            {
+                System.out.println("Enter valid customer details");
+            }
+		}
+        
+	}
+}
